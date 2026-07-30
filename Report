@@ -1,0 +1,32 @@
+# Nmap Lab Report
+
+## 1. Objective
+
+To learn how to use Nmap to perform basic network scanning and identify the status of TCP ports.
+
+## 2. Lab Environment
+
+* Operating System: Kali Linux
+* Tool: Nmap
+* Platform: VirtualBox
+
+## 3. Commands Used
+
+```bash
+nmap 127.0.0.1
+nmap -sV 127.0.0.1
+nmap -p- 127.0.0.1
+nmap -O 127.0.0.1
+```
+
+## 4. Results
+
+The scans completed successfully. The host was reachable, and the scan displayed the status of the scanned TCP ports.
+
+## 5. Observations
+
+I learned how to perform basic scans, interpret Nmap output, and understand the difference between open and closed ports.
+
+## 6. Conclusion
+
+This lab introduced me to Nmap and its basic scanning capabilities. It improved my understanding of network reconnaissance in a controlled lab environment.
