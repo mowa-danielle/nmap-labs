@@ -1,0 +1,59 @@
+# Nmap Command Notes
+
+## Basic Scan
+
+```bash
+nmap 127.0.0.1
+```
+
+Scans the 1,000 most common TCP ports on the local machine.
+
+---
+
+## Service Version Detection
+
+```bash
+nmap -sV 127.0.0.1
+```
+
+Attempts to determine which services are running on open ports and identify their versions.
+
+---
+
+## Full Port Scan
+
+```bash
+nmap -p- 127.0.0.1
+```
+
+Scans all 65,535 TCP ports.
+
+---
+
+## OS Detection
+
+```bash
+sudo nmap -O 127.0.0.1
+```
+
+Attempts to detect the operating system.
+
+---
+
+## Useful Concepts
+
+### Localhost
+
+`127.0.0.1` always refers to the current machine.
+
+### Open Port
+
+A program or service is listening on that port.
+
+### Closed Port
+
+The host responds, but no service is listening.
+
+### Filtered Port
+
+A firewall or filtering device prevents Nmap from determining the port state.
