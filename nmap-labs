@@ -1,0 +1,206 @@
+# Nmap Labs
+
+## Overview
+
+Welcome to my **Nmap Labs** repository.
+
+This repository documents my hands-on practice with **Nmap (Network Mapper)** while studying cybersecurity. The goal is to understand how network scanning works, identify open ports and services, and become familiar with basic reconnaissance techniques in a safe virtual lab environment.
+
+> **Disclaimer:** All scans in this repository were performed only on my own virtual machines and authorized lab environments for educational purposes.
+
+---
+
+## Objectives
+
+* Learn the fundamentals of Nmap.
+* Understand TCP port scanning.
+* Identify open, closed, and filtered ports.
+* Discover services running on target systems.
+* Practice safe and ethical reconnaissance techniques.
+
+---
+
+## Lab Environment
+
+| Component        | Details                                     |
+| ---------------- | ------------------------------------------- |
+| Operating System | Kali Linux                                  |
+| Virtualization   | VirtualBox                                  |
+| Target Machines  | Kali Linux (localhost) and Windows VM (lab) |
+| Tool             | Nmap                                        |
+
+---
+
+# Lab 1 – Scanning Localhost
+
+## Command
+
+```bash
+nmap 127.0.0.1
+```
+
+### Purpose
+
+Scan the local machine (localhost) for the 1,000 most common TCP ports.
+
+### Explanation
+
+* `nmap` starts the network scan.
+* `127.0.0.1` is the loopback (localhost) IP address.
+* The scan checks which common ports are open on the current machine.
+
+### Example Result
+
+```text
+Host is up.
+
+Not shown: 1000 closed tcp ports (reset)
+```
+
+### Interpretation
+
+This result means:
+
+* The computer is running.
+* Nmap successfully reached the host.
+* None of the 1,000 most common TCP ports had a service listening.
+* This is normal for a fresh Kali Linux installation with no network services running.
+
+---
+
+# Lab 2 – Service Version Detection
+
+## Command
+
+```bash
+nmap -sV 127.0.0.1
+```
+
+### Purpose
+
+Detect the version of services running on open ports.
+
+### What I Learned
+
+The `-sV` option helps identify the software and version behind an open port, which is useful during vulnerability assessments.
+
+---
+
+# Lab 3 – Scan All TCP Ports
+
+## Command
+
+```bash
+nmap -p- 127.0.0.1
+```
+
+### Purpose
+
+Scan all 65,535 TCP ports instead of only the default 1,000.
+
+### What I Learned
+
+A service may run on an uncommon port. Scanning every port helps discover services that a default scan could miss.
+
+---
+
+# Lab 4 – Operating System Detection
+
+## Command
+
+```bash
+sudo nmap -O 127.0.0.1
+```
+
+### Purpose
+
+Attempt to identify the operating system of the target.
+
+### Note
+
+OS detection is generally more accurate when scanning another host rather than the local machine.
+
+---
+
+# Common Port Numbers
+
+|  Port | Service              | Protocol |
+| ----: | -------------------- | -------- |
+| 20/21 | FTP                  | TCP      |
+|    22 | SSH                  | TCP      |
+|    23 | Telnet               | TCP      |
+|    25 | SMTP                 | TCP      |
+|    53 | DNS                  | TCP/UDP  |
+|    80 | HTTP                 | TCP      |
+|   110 | POP3                 | TCP      |
+|   143 | IMAP                 | TCP      |
+|   443 | HTTPS                | TCP      |
+|  3389 | Remote Desktop (RDP) | TCP      |
+
+---
+
+# Skills Practiced
+
+* Basic network reconnaissance
+* TCP port scanning
+* Reading Nmap output
+* Service enumeration
+* Basic command-line usage
+* Understanding localhost
+
+---
+
+# Key Takeaways
+
+Throughout these labs, I learned:
+
+* The purpose of Nmap in cybersecurity.
+* The difference between open, closed, and filtered ports.
+* Why services determine whether a port appears open.
+* How localhost (`127.0.0.1`) refers to the current machine.
+* Why default scans check only the most common TCP ports.
+
+---
+
+# Future Learning Goals
+
+* UDP scanning (`-sU`)
+* SYN scans (`-sS`)
+* Aggressive scans (`-A`)
+* Nmap Scripting Engine (NSE)
+* Scanning multiple hosts
+* Network mapping
+* Vulnerability discovery
+
+---
+
+# Repository Structure
+
+```text
+nmap-labs/
+│
+├── README.md
+├── screenshots/
+│   ├── localhost_scan.png
+│   ├── service_detection.png
+│   └── full_port_scan.png
+├── notes/
+│   └── nmap_notes.md
+└── reports/
+    └── lab_report.pdf
+```
+
+---
+
+## References
+
+* Official Nmap Documentation: https://nmap.org/docs.html
+* Nmap Reference Guide: https://nmap.org/book/man.html
+
+---
+
+## Author
+
+Cybersecurity student passionate about ethical hacking, Linux, networking, and continuous learning.
+
+Thank you for visiting this repository. Feedback and suggestions are always welcome.
